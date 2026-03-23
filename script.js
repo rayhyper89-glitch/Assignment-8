@@ -45,6 +45,40 @@ function displayResult() {
     resultText = "You are a 🦁 Lion (bold leader)";
   }
 
+
+  function displayResult() {
+  let total = 0;
+
+  let selectedButtons = document.querySelectorAll(".answer-btn.selected");
+
+  selectedButtons.forEach(button => {
+    total += parseInt(button.dataset.points);
+  });
+
+  let resultHTML = "";
+
+  if (total <= 5) {
+    resultHTML = `
+      <h2>You are a 🐱 Cat!</h2>
+      <img src="https://www.muraldecal.com/en/img/arc137-jpg/folder/products-listado-merchant/stickers-super-marioraccoon.jpg" width="200">
+      <p>Calm and relaxed personality.</p>
+    `;
+  } else if (total <= 10) {
+    resultHTML = `
+      <h2>You are a 🐶 Dog!</h2>
+      <img src="https://www.muraldecal.com/en/img/arc137-jpg/folder/products-listado-merchant/stickers-super-marioraccoon.jpg" width="200">
+      <p>Fun and social personality.</p>
+    `;
+  } else {
+    resultHTML = `
+      <h2>You are a 🦁 Lion!</h2>
+      <img src="https://www.muraldecal.com/en/img/arc137-jpg/folder/products-listado-merchant/stickers-super-marioraccoon.jpg" width="200">
+      <p>Bold and confident leader.</p>
+    `;
+  }
+
+  document.getElementById("result-container").innerHTML = resultHTML;
+}
   // Display result in DOM
   document.getElementById("result-container").textContent = resultText;
 }
